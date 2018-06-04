@@ -1,0 +1,20 @@
+group 'cn.tanlw'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url "http://nexus.baozun.com/repository/bz-develop/" }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile('com.squareup.okhttp3:okhttp:3.9.1')
+    compile('com.alibaba:fastjson:1.2.44')
+    compile('org.springframework.boot:spring-boot-starter-web:2.0.1.RELEASE')
+    compile('org.springframework.boot:spring-boot-starter-test:2.0.1.RELEASE')
+    compileOnly('org.projectlombok:lombok:1.16.20')
+    compile('com.ibm.etcd:etcd-java:0.0.2')
+}
