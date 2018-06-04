@@ -11,7 +11,6 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +22,6 @@ import java.util.List;
 public class ETCDUtil {
     private static Environment environment;
     private static KvStoreClient instance;
-
 
     private ETCDUtil() {
     }
@@ -56,17 +54,6 @@ public class ETCDUtil {
         } catch (Exception e) {
             log.error("添加监听失败", e);
         }
-    }
-
-    public static List<KeyValue> getByPrefix(String prefix) {
-        List<KeyValue> list = new ArrayList<>();
-        try {
-            ByteString key = ByteString.copyFrom(prefix, "utf-8");
-            list = getInstance().getKvClient().get(key).asPrefix().sync().getKvsList();
-        } catch (UnsupportedEncodingException e) {
-            log.error("获取key前缀节点失败", e);
-        }
-        return list;
     }
 
     /**

@@ -33,14 +33,11 @@ public class WatchListener implements StreamObserver<WatchUpdate> {
 
     @Override
     public void onError(Throwable t) {
-
         System.out.println("ERROR  ERROR   ERROR");
-
     }
 
     @Override
     public void onCompleted() {
-
         System.out.println("onCompleted  onCompleted   onCompleted");
     }
 }
